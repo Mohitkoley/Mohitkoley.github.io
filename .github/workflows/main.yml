@@ -1,0 +1,27 @@
+name: Fetch Data Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  fetch_data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Use Token Secret
+        env:
+          MY_TOKEN: ${{ secrets.TOKEN }}
+        run: node fetch-data.js

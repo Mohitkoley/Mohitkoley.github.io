@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Mohit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .project {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>My GitHub Projects</h2>
+        <div id="projects"></div>
+    </div>
+
+    <script>
+        const projectsContainer = document.getElementById('projects');
+        
+        // Fetch GitHub projects using GitHub API
+        fetch('https://api.github.com/users/Mohitkoley/repos',{
+        //     headers: {
+        //     'Authorization': `Bearer ${githubToken}`
+        // }
+        })
+            .then(response => response.json())
+            .then(projects => {
+                projects.forEach(project => {
+                    const projectDiv = document.createElement('div');
+                    projectDiv.classList.add('project');
+
+                    const projectName = document.createElement('h3');
+                    projectName.textContent = project.name;
+
+                    const projectDescription = document.createElement('p');
+                    projectDescription.textContent = project.description;
+
+                    const projectLink = document.createElement('a');
+                    projectLink.href = project.html_url;
+                    projectLink.textContent = 'View on GitHub';
+
+                    projectDiv.appendChild(projectName);
+                    projectDiv.appendChild(projectDescription);
+                    projectDiv.appendChild(projectLink);
+
+                    projectsContainer.appendChild(projectDiv);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching GitHub projects:', error);
+            });
+    </script>
+</body>
+</html>
