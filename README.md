@@ -8,17 +8,15 @@ I am a passionate and dedicated software developer with a love for creating inno
 
 ## Projects
 
-### Project 1: [Project Name]
+### Project 1: [News Application](https://github.com/Mohitkoley/news_app_one)
 
-- Description: A brief description of the project, its purpose, and its features.
-- Technologies: List of technologies and tools used.
-- Demo: Link to a live demo or a video showcasing the project.
+- Description: A news application that displays the latest news from around the world. Users can search for news articles by keyword, filter by category, and sort by popularity, relevancy, or date.
+- Technologies: Flutter , Dart , News API.
 
-### Project 2: [Project Name]
+### Project 2: [Class 10](https://github.com/Mohitkoley/Class10)
 
-- Description: A brief description of the project, its purpose, and its features.
-- Technologies: List of technologies and tools used.
-- Demo: Link to a live demo or a video showcasing the project.
+- Description: A Flutter app that helps students of class 10 to prepare for their board exams. It contains all the important questions and answers for all the subjects.
+- Technologies: Flutter , Dart , REST APIs.
 
 ### ...
 
@@ -56,8 +54,8 @@ I am a passionate and dedicated software developer with a love for creating inno
 
 Feel free to reach out to me! You can connect with me via:
 
-- Email: [Your Email Address](mailto:youremail@example.com)
-- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/yourprofile)
-- Twitter: [@YourTwitterHandle](https://twitter.com/yourhandle)
+- Email: [Your Email Address](mailto:mohitkoley5@gmail.com)
+- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/mohitkoley2211/)
+- Twitter: [@YourTwitterHandle](https://twitter.com/Rockeysingh2211)
 
 I'm open to collaboration, feedback, and new opportunities. Let's connect and make something awesome together!
