@@ -54,8 +54,8 @@ I am a passionate and dedicated software developer with a love for creating inno
 
 Feel free to reach out to me! You can connect with me via:
 
-- Email: [Your Email Address](mailto:mohitkoley5@gmail.com)
-- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/mohitkoley2211/)
-- Twitter: [@YourTwitterHandle](https://twitter.com/Rockeysingh2211)
+- Email: [mohitkoley5@gmail.com](mailto:mohitkoley5@gmail.com)
+- LinkedIn: [Mohit koley](https://www.linkedin.com/in/mohitkoley2211/)
+- Twitter: [Rockeysingh2211](https://twitter.com/Rockeysingh2211)
 
 I'm open to collaboration, feedback, and new opportunities. Let's connect and make something awesome together!
