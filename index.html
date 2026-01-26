@@ -5,11 +5,49 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Mohit Koley | Flutter Developer Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Mohit Koley, a passionate Flutter Developer specializing in high-performance cross-platform mobile applications using Bloc, Firebase, and clean architecture." />
+  <meta name="keywords"
+    content="Mohit Koley, Flutter Developer, Mobile App Developer, Dart, Portfolio, UI/UX Designer, Firebase, Android, iOS" />
+  <meta name="author" content="Mohit Koley" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mohitkoley.me/" />
+  <meta property="og:title" content="Mohit Koley | Flutter Developer Portfolio" />
+  <meta property="og:description"
+    content="Passionate Flutter developer building clean, scalable, and high-performance mobile apps." />
+  <meta property="og:image" content="https://mohitkoley.me/assets/img/profile.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://mohitkoley.me/" />
+  <meta property="twitter:title" content="Mohit Koley | Flutter Developer Portfolio" />
+  <meta property="twitter:description"
+    content="Passionate Flutter developer building clean, scalable, and high-performance mobile apps." />
+  <meta property="twitter:image" content="https://mohitkoley.me/assets/img/profile.png" />
+
+  <link rel="canonical" href="https://mohitkoley.me/" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mohit Koley",
+      "jobTitle": "Lead Flutter Developer",
+      "url": "https://mohitkoley.me/",
+      "sameAs": [
+        "https://github.com/Mohitkoley",
+        "https://www.linkedin.com/in/mohitkoley2211/"
+      ],
+      "description": "Passionate Flutter developer with a knack for building clean, scalable, and high-performance mobile apps."
+    }
+  </script>
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
     rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script>
     tailwind.config = {
@@ -48,19 +86,53 @@
     .dark .timeline-decorator::before {
       background-color: #4b5563;
     }
+
+    /* Animation Classes */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fadeInUp {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
   </style>
   <!-- Main Loader -->
   <script src="src/js/loader.js" defer></script>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200 pb-24 md:pb-0">
   <div class="flex min-h-screen flex-col">
     <!-- Header -->
     <div data-include="src/components/header.html"></div>
 
+    <!-- Bottom Navigation -->
+    <div data-include="src/components/bottom_nav.html"></div>
+
     <main class="flex-grow">
       <!-- Hero Section -->
       <div data-include="src/sections/hero.html"></div>
+
+      <!-- Skills Section -->
+      <div data-include="src/sections/skills.html"></div>
 
       <!-- Projects Showcase -->
       <div data-include="src/sections/projects.html"></div>
