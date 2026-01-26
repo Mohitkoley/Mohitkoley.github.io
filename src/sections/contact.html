@@ -30,11 +30,8 @@
                     </a>
                 </div>
             </div>
-            <!-- Formspree Integration (Commented for now) -->
-            <!-- <form action="https://formspree.io/f/mohitkoley5@gmail.com" method="POST"
-                class="space-y-6 bg-white dark:bg-background-dark p-8 rounded-xl shadow-xl border border-gray-100 dark:border-gray-800"> -->
-
-            <form action="mailto:mohitkoley5@gmail.com" method="GET" enctype="text/plain"
+            <!-- Formspree Integration -->
+            <form action="https://formspree.io/f/mqeqlwbw" method="POST" id="contact-form"
                 class="space-y-6 bg-white dark:bg-background-dark p-8 rounded-xl shadow-xl border border-gray-100 dark:border-gray-800">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div class="space-y-2">
@@ -57,11 +54,69 @@
                         id="message" placeholder="How can I help you?" rows="5"></textarea>
                 </div>
                 <button
-                    class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary/90 hover:scale-[1.02] transition-all shadow-lg"
-                    type="submit">
-                    Send Message
+                    class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary/90 hover:scale-[1.02] transition-all shadow-lg flex items-center justify-center gap-2"
+                    type="submit" id="submit-btn">
+                    <span>Send Message</span>
+                    <span class="material-symbols-outlined text-sm hidden group-loading:block animate-spin">sync</span>
                 </button>
             </form>
+
+            <!-- Success Snackbar -->
+            <div id="snackbar"
+                class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-gray-900 dark:bg-primary text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 transform translate-y-32 opacity-0 transition-all duration-500 z-50">
+                <span class="material-symbols-outlined text-green-400 dark:text-white">check_circle</span>
+                <span class="font-medium">Message sent successfully!</span>
+            </div>
+
+            <script>
+                const contactForm = document.getElementById('contact-form');
+                const submitBtn = document.getElementById('submit-btn');
+                const snackbar = document.getElementById('snackbar');
+
+                contactForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    const btnText = submitBtn.querySelector('span');
+                    const originalText = btnText.textContent;
+
+                    // Loading state
+                    submitBtn.disabled = true;
+                    btnText.textContent = 'Sending...';
+
+                    try {
+                        const formData = new FormData(contactForm);
+                        const response = await fetch(contactForm.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+
+                        if (response.ok) {
+                            // Clear form
+                            contactForm.reset();
+
+                            // Show success snackbar
+                            snackbar.classList.remove('translate-y-32', 'opacity-0');
+                            snackbar.classList.add('translate-y-0', 'opacity-100');
+
+                            // Hide snackbar after 4 seconds
+                            setTimeout(() => {
+                                snackbar.classList.remove('translate-y-0', 'opacity-100');
+                                snackbar.classList.add('translate-y-32', 'opacity-0');
+                            }, 4000);
+                        } else {
+                            throw new Error('Submission failed');
+                        }
+                    } catch (error) {
+                        alert('Something went wrong. Please try again or email me directly.');
+                    } finally {
+                        submitBtn.disabled = false;
+                        btnText.textContent = originalText;
+                    }
+                });
+            </script>
         </div>
     </div>
 </section>
