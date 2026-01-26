@@ -1,7 +1,80 @@
-<html>
-  <head>
-    <body>
-      <h1>mohit koley</h1>
-    </body>
-  </head>
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Mohit Koley | Flutter Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#13a4ec",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101c22",
+          },
+          fontFamily: {
+            display: ["Inter", "sans-serif"],
+          },
+          borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+        },
+      },
+    };
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .timeline-decorator::before {
+      content: "";
+      position: absolute;
+      top: 1.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: calc(100% - 3.5rem);
+      background-color: #374151;
+    }
+
+    .dark .timeline-decorator::before {
+      background-color: #4b5563;
+    }
+  </style>
+  <!-- Main Loader -->
+  <script src="src/js/loader.js" defer></script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+  <div class="flex min-h-screen flex-col">
+    <!-- Header -->
+    <div data-include="src/components/header.html"></div>
+
+    <main class="flex-grow">
+      <!-- Hero Section -->
+      <div data-include="src/sections/hero.html"></div>
+
+      <!-- Projects Showcase -->
+      <div data-include="src/sections/projects.html"></div>
+
+      <!-- Experience Timeline -->
+      <div data-include="src/sections/experience.html"></div>
+
+      <!-- Contact Section -->
+      <div data-include="src/sections/contact.html"></div>
+    </main>
+
+    <!-- Footer -->
+    <div data-include="src/components/footer.html"></div>
+  </div>
+</body>
+
 </html>
