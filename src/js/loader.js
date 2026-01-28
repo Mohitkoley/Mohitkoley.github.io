@@ -263,15 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Try to get cached version for modal
             const cachedUrl = getCachedImage(imageUrl) || imageUrl;
 
-            const appStoreButton = appStoreUrl ? `
-                <a href="${appStoreUrl}" target="_blank"
-                   class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-medium transition-colors">
-                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.19-.75-3.31-1.15-.69-.25-1.87-.62-3.31-.5-1.34.11-2.22.58-2.58.73-.45.19-.83.37-1.09.49-.24.11-.44.17-.44.17s-.2-.06-.44-.17c-.26-.12-.64-.3-1.09-.49-.36-.15-1.24-.62-2.58-.73-1.44-.12-2.62.24-3.31.5-1.12.4-2.22.69-3.31 1.15-1.03.45-2.1.6-3.08-.35-.98-.95-1.47-2.32-1.08-4.22.26-1.25.96-2.45 1.59-3.58.05-.09.11-.17.16-.26l.85-1.31c.49-.76 1.25-1.15 2.01-1.15h.78c.76 0 1.52.39 2.01 1.15l.85 1.31c.05.09.11.17.16.26.63 1.13 1.33 2.33 1.59 3.58.39 1.9-.1 3.27-.1 4.22zm-3.37-3.52c.54 0 .98-.44.98-.98s-.44-.98-.98-.98-.98.44-.98.98.44.98.98.98zm0-4.16c.54 0 .98-.44.98-.98s-.44-.98-.98-.98-.98.44-.98.98.44.98.98.98z"/>
-                    </svg>
-                    Download on App Store
-                </a>
-            ` : '';
+
 
             modalContent.innerHTML = `
         <div class="relative">
@@ -286,6 +278,16 @@ document.addEventListener("DOMContentLoaded", () => {
             
         </div>
     `;
+
+            //  const appStoreButton = appStoreUrl ? `
+            //             <a href="${appStoreUrl}" target="_blank"
+            //                class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-medium transition-colors">
+            //                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            //                     <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.19-.75-3.31-1.15-.69-.25-1.87-.62-3.31-.5-1.34.11-2.22.58-2.58.73-.45.19-.83.37-1.09.49-.24.11-.44.17-.44.17s-.2-.06-.44-.17c-.26-.12-.64-.3-1.09-.49-.36-.15-1.24-.62-2.58-.73-1.44-.12-2.62.24-3.31.5-1.12.4-2.22.69-3.31 1.15-1.03.45-2.1.6-3.08-.35-.98-.95-1.47-2.32-1.08-4.22.26-1.25.96-2.45 1.59-3.58.05-.09.11-.17.16-.26l.85-1.31c.49-.76 1.25-1.15 2.01-1.15h.78c.76 0 1.52.39 2.01 1.15l.85 1.31c.05.09.11.17.16.26.63 1.13 1.33 2.33 1.59 3.58.39 1.9-.1 3.27-.1 4.22zm-3.37-3.52c.54 0 .98-.44.98-.98s-.44-.98-.98-.98-.98.44-.98.98.44.98.98.98zm0-4.16c.54 0 .98-.44.98-.98s-.44-.98-.98-.98-.98.44-.98.98.44.98.98.98z"/>
+            //                 </svg>
+            //                 Download on App Store
+            //             </a>
+            //         ` : '';
 
             // <div class="mt-6 text-center">
             //             <div class="flex gap-3 justify-center">
