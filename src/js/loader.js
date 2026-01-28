@@ -107,18 +107,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const closeModal = document.getElementById('closeModal');
         const laylaCard = document.querySelector('.layla-card');
         const projectImageCards = document.querySelectorAll('.project-image-card');
-        
+
         // Image hydration cache system
         const imageCache = new Map();
         const cachePrefix = 'portfolio_image_cache_';
-        
+
         // Function to cache an image
         async function cacheImage(url, imageUrl) {
             try {
                 const response = await fetch(url);
                 const blob = await response.blob();
                 const cacheName = `${cachePrefix}${imageUrl.split('/').pop()}`;
-                
+
                 // Store in localStorage as base64 (for small images)
                 if (blob.size < 1024 * 1024) { // 1MB limit
                     const reader = new FileReader();
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     };
                     reader.readAsDataURL(blob);
                 }
-                
+
                 // Create object URL for immediate use
                 const objectUrl = URL.createObjectURL(blob);
                 imageCache.set(imageUrl, objectUrl);
@@ -137,16 +137,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 return imageUrl; // Fallback to original URL
             }
         }
-        
+
         // Function to get cached image
         function getCachedImage(imageUrl) {
             const cacheName = `${cachePrefix}${imageUrl.split('/').pop()}`;
-            
+
             // Check memory cache first
             if (imageCache.has(imageUrl)) {
                 return imageCache.get(imageUrl);
             }
-            
+
             // Check localStorage cache
             const cachedData = localStorage.getItem(cacheName);
             if (cachedData) {
@@ -154,10 +154,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 imageCache.set(imageUrl, objectUrl);
                 return objectUrl;
             }
-            
+
             return null;
         }
-        
+
         // Convert data URL to Blob
         function dataURLtoBlob(dataURL) {
             const arr = dataURL.split(',');
@@ -165,16 +165,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const bstr = atob(arr[1]);
             let n = bstr.length;
             const u8arr = new Uint8Array(n);
-            while(n--){
+            while (n--) {
                 u8arr[n] = bstr.charCodeAt(n);
             }
-            return new Blob([u8arr], {type:mime});
+            return new Blob([u8arr], { type: mime });
         }
-        
+
         // Preload and cache all project images
         async function preloadProjectImages() {
             const cards = document.querySelectorAll('.project-image-card');
-            
+
             for (const card of cards) {
                 const imageUrl = card.dataset.imageUrl;
                 if (imageUrl) {
@@ -262,7 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
         function showImageModal(imageUrl, projectName, appStoreUrl) {
             // Try to get cached version for modal
             const cachedUrl = getCachedImage(imageUrl) || imageUrl;
-            
+
             const appStoreButton = appStoreUrl ? `
                 <a href="${appStoreUrl}" target="_blank"
                    class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-medium transition-colors">
@@ -283,17 +283,19 @@ document.addEventListener("DOMContentLoaded", () => {
                      style="max-height: 70vh;">
             </div>
 
-            <div class="mt-6 text-center">
-                <div class="flex gap-3 justify-center">
-                    ${appStoreButton}
-                    <button onclick="document.getElementById('playStoreModal').classList.add('hidden')" 
-                            class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-lg font-medium transition-colors">
-                        Close
-                    </button>
-                </div>
-            </div>
+            
         </div>
     `;
+
+            // <div class="mt-6 text-center">
+            //             <div class="flex gap-3 justify-center">
+            //                 ${appStoreButton}
+            //                 <button onclick="document.getElementById('playStoreModal').classList.add('hidden')" 
+            //                         class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-lg font-medium transition-colors">
+            //                     Close
+            //                 </button>
+            //             </div>
+            //         </div>
             modal.classList.remove('hidden');
         }
 
@@ -311,7 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 showImageModal(imageUrl, projectName, appStoreUrl);
             });
         });
-        
+
         // Preload images after setup
         preloadProjectImages();
 
