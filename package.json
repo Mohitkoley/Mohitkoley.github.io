@@ -1,0 +1,31 @@
+{
+  "name": "mohitkoley.github.io",
+  "version": "1.0.0",
+  "description": "Welcome to my GitHub portfolio! Here you will find a collection of my projects, contributions, and interests within the world of software development. Feel free to explore and get to know me better.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mohitkoley/Mohitkoley.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Mohitkoley/Mohitkoley.github.io/issues"
+  },
+  "homepage": "https://github.com/Mohitkoley/Mohitkoley.github.io#readme",
+  "devDependencies": {
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.11",
+    "autoprefixer": "^10.4.26",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.2.1"
+  }
+}
