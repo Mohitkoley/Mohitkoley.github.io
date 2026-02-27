@@ -118,7 +118,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const laylaCard = document.querySelector('.layla-card');
         const projectImageCards = document.querySelectorAll('.project-image-card');
 
-        // Image hydration cache system
+        // Guard: bail if the modal isn't in the DOM (prevents crashes before initExperienceStackEffect)
+        if (!modal || !modalContent) return;
+
+
         const imageCache = new Map();
         const cachePrefix = 'portfolio_image_cache_';
 
@@ -208,31 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Show image modal for project cards (NO store buttons)
-        function showImageModal(imageUrl, projectName) {
-            // Try to get cached version for modal
-            const cachedUrl = getCachedImage(imageUrl) || imageUrl;
-
-            modalContent.innerHTML = `
-        <div class="relative">
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 text-center">${projectName}</h3>
-            
-            <div class="flex justify-center items-center">
-                <img src="${cachedUrl}" alt="${projectName}" 
-                     class="max-w-full h-auto rounded-lg shadow-lg" 
-                     style="max-height: 70vh;">
-            </div>
-
-            <div class="mt-6 text-center">
-                <button onclick="document.getElementById('playStoreModal').classList.add('hidden')" 
-                        class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-lg font-medium transition-colors">
-                    Close
-                </button>
-            </div>
-        </div>
-    `;
-            modal.classList.remove('hidden');
-        }
+        // (duplicate removed — use the showImageModal below that accepts appStoreUrl)
 
 
         // Show Layla modal
@@ -344,14 +323,16 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.add('hidden');
-            }
-        });
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+        }
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            if (modal && e.key === 'Escape' && !modal.classList.contains('hidden')) {
                 modal.classList.add('hidden');
             }
         });
