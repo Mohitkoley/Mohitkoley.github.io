@@ -2,35 +2,6 @@
 
 Headless browser automation CLI for AI agents. Fast Rust CLI with Node.js fallback.
 
-## Installation
-
-### npm (recommended)
-
-```bash
-npm install -g agent-browser
-agent-browser install  # Download Chromium
-```
-
-### From Source
-
-```bash
-git clone https://github.com/vercel-labs/agent-browser
-cd agent-browser
-pnpm install
-pnpm build
-pnpm build:native   # Requires Rust (https://rustup.rs)
-pnpm link --global  # Makes agent-browser available globally
-agent-browser install
-```
-
-### Linux Dependencies
-
-On Linux, install system dependencies:
-
-```bash
-agent-browser install --with-deps
-# or manually: npx playwright install-deps chromium
-```
 
 ## Quick Start
 

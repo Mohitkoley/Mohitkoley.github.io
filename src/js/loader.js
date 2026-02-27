@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     async function loadComponent(el) {
         const file = el.getAttribute("data-include");
         try {
-            const response = await fetch(file);
+            const response = await fetch(file, { cache: 'no-cache' });
             if (response.ok) {
                 const html = await response.text();
                 el.innerHTML = html;
@@ -43,8 +43,18 @@ document.addEventListener("DOMContentLoaded", () => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    // Optional: stop observing once revealed
-                    // observer.unobserve(entry.target);
+
+                    // Highlight bottom nav based on intersecting section
+                    if (entry.target.id) {
+                        const navLinks = document.querySelectorAll('.nav-item');
+                        navLinks.forEach(link => {
+                            if (link.getAttribute('href') === `#${entry.target.id}`) {
+                                link.classList.add('active');
+                            } else {
+                                link.classList.remove('active');
+                            }
+                        });
+                    }
                 }
             });
         }, observerOptions);
@@ -347,12 +357,102 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    function initExperienceStackEffect() {
+        const track = document.querySelector('#exp-track');
+        const deck = document.querySelector('#exp-deck');
+        const cards = Array.from(document.querySelectorAll('.exp-card'));
+        if (!track || !deck || !cards.length) return;
+
+        const numCards = cards.length;
+
+        // Set perspective on the deck so translateZ produces real 3D depth
+        deck.style.perspective = '1500px';
+        deck.style.perspectiveOrigin = '50% 50%';
+
+        let ticking = false;
+
+        /**
+         * Returns 0–1 scroll progress through the exp-track.
+         * 0 = top of track just entered sticky, 1 = end of track leaving.
+         */
+        function getProgress() {
+            const rect = track.getBoundingClientRect();
+            const stickyTop = 96; // top-24 = 6rem = 96px
+            const totalScroll = track.offsetHeight - window.innerHeight;
+            return Math.max(0, Math.min(1, (stickyTop - rect.top) / totalScroll));
+        }
+
+        /**
+         * Clamps x to [0, 1].
+         */
+        const clamp01 = x => Math.max(0, Math.min(1, x));
+
+        function updateCards() {
+            const progress = getProgress();
+
+            cards.forEach((card, i) => {
+                /*
+                 * Each card "arrives" during its own slice of progress.
+                 * Card 0 is always present (arrival = 1).
+                 * Card i starts arriving at progress = i / numCards
+                 * and finishes at progress = i / numCards + arrivalWindow.
+                 */
+                const arrivalStart = i / numCards;
+                const arrivalWindow = 0.18; // 18% of total scroll = arrival speed
+                const arrival = i === 0
+                    ? 1
+                    : clamp01((progress - arrivalStart) / arrivalWindow);
+
+                /*
+                 * Burial: how many cards arrived AFTER this one, fractionally.
+                 * Each arrived subsequent card contributes 1 unit of burial depth.
+                 */
+                let burialDepth = 0;
+                for (let j = i + 1; j < numCards; j++) {
+                    const jStart = j / numCards;
+                    const jArrival = j === 0 ? 1 : clamp01((progress - jStart) / arrivalWindow);
+                    burialDepth += jArrival;
+                }
+
+                // Slide in from below: 108% → 0%
+                const slideY = 108 * (1 - arrival);
+                // Push back in Z: each burial level = -28px
+                const tz = -28 * burialDepth;
+                // Scale down slightly per burial level
+                const scale = 1 - 0.04 * burialDepth;
+                // Dim slightly per burial level
+                const opacity = Math.max(0.65, 1 - 0.1 * burialDepth);
+
+                if (i === 0) {
+                    // Card 0 never slides — only buries
+                    card.style.transform = `scale(${scale.toFixed(4)}) translateZ(${tz.toFixed(1)}px)`;
+                } else {
+                    card.style.transform = `translateY(${slideY.toFixed(2)}%) scale(${scale.toFixed(4)}) translateZ(${tz.toFixed(1)}px)`;
+                }
+                card.style.opacity = opacity.toFixed(3);
+                card.style.transition = 'none'; // let JS drive it frame-by-frame
+            });
+
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateCards);
+                ticking = true;
+            }
+        }, { passive: true });
+
+        updateCards(); // run once on init
+    }
+
     async function init() {
         const promises = Array.from(includeElements).map(el => loadComponent(el));
         await Promise.all(promises);
         initAnimations();
         initContactForm();
         initProjectCards();
+        initExperienceStackEffect();
     }
 
     init();

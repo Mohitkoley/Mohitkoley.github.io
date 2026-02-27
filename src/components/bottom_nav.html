@@ -1,41 +1,51 @@
 <!-- Bottom Navigation (Mobile Only) -->
 <div class="md:hidden fixed bottom-6 inset-x-0 z-50 flex justify-center px-4 pointer-events-none animate-fadeInUp">
     <nav
-        class="w-full max-w-md bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 pointer-events-auto">
-        <ul class="flex items-center justify-around h-16 px-4">
-            <li>
+        class="w-full max-w-md bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-200/50 dark:border-gray-800/50 pointer-events-auto overflow-hidden">
+        <ul class="flex items-center justify-around h-16 px-2 relative" id="bottom-nav-list">
+            <li class="flex-1">
                 <a href="#hero"
-                    class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
-                    <span class="material-symbols-outlined text-2xl">home</span>
-                    <span class="text-[10px] font-bold uppercase tracking-wider">Home</span>
+                    class="nav-item flex flex-col items-center justify-center gap-1 w-full h-full text-gray-400 dark:text-gray-500 hover:text-primary transition-all duration-300 relative group">
+                    <span
+                        class="material-symbols-outlined text-2xl group-[.active]:text-primary group-[.active]:scale-110 transition-transform duration-300">home</span>
+                    <span
+                        class="text-[9px] font-bold uppercase tracking-wider opacity-0 group-[.active]:opacity-100 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-1">Home</span>
                 </a>
             </li>
-            <li>
+            <li class="flex-1">
                 <a href="#skills"
-                    class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
-                    <span class="material-symbols-outlined text-2xl">terminal</span>
-                    <span class="text-[10px] font-bold uppercase tracking-wider">Skills</span>
+                    class="nav-item flex flex-col items-center justify-center gap-1 w-full h-full text-gray-400 dark:text-gray-500 hover:text-primary transition-all duration-300 relative group">
+                    <span
+                        class="material-symbols-outlined text-2xl group-[.active]:text-primary group-[.active]:scale-110 transition-transform duration-300">terminal</span>
+                    <span
+                        class="text-[9px] font-bold uppercase tracking-wider opacity-0 group-[.active]:opacity-100 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-1">Skills</span>
                 </a>
             </li>
-            <li>
+            <li class="flex-1">
                 <a href="#projects"
-                    class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
-                    <span class="material-symbols-outlined text-2xl">grid_view</span>
-                    <span class="text-[10px] font-bold uppercase tracking-wider">Projects</span>
+                    class="nav-item flex flex-col items-center justify-center gap-1 w-full h-full text-gray-400 dark:text-gray-500 hover:text-primary transition-all duration-300 relative group">
+                    <span
+                        class="material-symbols-outlined text-2xl group-[.active]:text-primary group-[.active]:scale-110 transition-transform duration-300">grid_view</span>
+                    <span
+                        class="text-[9px] font-bold uppercase tracking-wider opacity-0 group-[.active]:opacity-100 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-1">Projects</span>
                 </a>
             </li>
-            <li>
+            <li class="flex-1">
                 <a href="#experience"
-                    class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
-                    <span class="material-symbols-outlined text-2xl">history_edu</span>
-                    <span class="text-[10px] font-bold uppercase tracking-wider">Experience</span>
+                    class="nav-item flex flex-col items-center justify-center gap-1 w-full h-full text-gray-400 dark:text-gray-500 hover:text-primary transition-all duration-300 relative group">
+                    <span
+                        class="material-symbols-outlined text-2xl group-[.active]:text-primary group-[.active]:scale-110 transition-transform duration-300">history_edu</span>
+                    <span
+                        class="text-[9px] font-bold uppercase tracking-wider opacity-0 group-[.active]:opacity-100 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-1">Exp</span>
                 </a>
             </li>
-            <li>
+            <li class="flex-1">
                 <a href="#contact"
-                    class="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
-                    <span class="material-symbols-outlined text-2xl">mail</span>
-                    <span class="text-[10px] font-bold uppercase tracking-wider">Contact</span>
+                    class="nav-item flex flex-col items-center justify-center gap-1 w-full h-full text-gray-400 dark:text-gray-500 hover:text-primary transition-all duration-300 relative group">
+                    <span
+                        class="material-symbols-outlined text-2xl group-[.active]:text-primary group-[.active]:scale-110 transition-transform duration-300">mail</span>
+                    <span
+                        class="text-[9px] font-bold uppercase tracking-wider opacity-0 group-[.active]:opacity-100 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-1">Contact</span>
                 </a>
             </li>
         </ul>

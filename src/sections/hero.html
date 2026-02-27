@@ -1,58 +1,275 @@
 <!-- Hero Section -->
-<section class="py-20 sm:py-24 lg:py-32" id="hero">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<section class="py-20 sm:py-24 lg:py-32 relative overflow-hidden" id="hero">
+    <!-- Background Accents -->
+    <div
+        class="absolute top-0 right-0 -mr-20 -mt-20 w-72 h-72 rounded-full bg-primary/10 blur-3xl mix-blend-multiply dark:mix-blend-lighten animate-pulse">
+    </div>
+    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 rounded-full bg-blue-400/10 blur-3xl mix-blend-multiply dark:mix-blend-lighten animate-pulse"
+        style="animation-delay: 2s;"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-            <div class="flex flex-col gap-6 text-center lg:text-left">
+
+            <!-- Text Content -->
+            <div class="flex flex-col gap-6 text-center lg:text-left order-2 lg:order-1">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold w-fit mx-auto lg:mx-0 reveal">
+                    <span class="relative flex h-3 w-3">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                    </span>
+                    Available for new projects
+                </div>
+
                 <h1
-                    class="text-4xl font-extrabold tracking-tighter text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
+                    class="text-4xl font-extrabold tracking-tighter text-gray-900 dark:text-white sm:text-5xl md:text-6xl reveal [transition-delay:200ms]">
                     Hi, I'm
-                    <span class="bg-[rgb(19_164_236)]
-           bg-clip-text text-transparent
-           drop-shadow-[0_0_12px_rgba(19,164,236,0.8)]">
+                    <br class="hidden lg:block" />
+                    <span
+                        class="bg-[rgb(19_164_236)] bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(19,164,236,0.5)]">
                         Mohit Koley
                     </span>
                 </h1>
+
                 <p
-                    class="max-w-xl mx-auto lg:mx-0 text-lg text-gray-600 dark:text-gray-300 reveal [transition-delay:400ms]">
-                    Passionate Flutter developer with a knack for building clean, scalable, and high-performance mobile
-                    apps. Experienced in creating cross-platform solutions with a strong focus on UI/UX, state
-                    management (BLoC, Cubit, Provider, Riverpod), and Firebase integration.
+                    class="max-w-xl mx-auto lg:mx-0 text-lg text-gray-600 dark:text-gray-300 reveal [transition-delay:400ms] leading-relaxed">
+                    Passionate <strong class="text-gray-900 dark:text-white font-semibold">Flutter Developer</strong>
+                    crafting clean, scalable, and high-performance mobile apps. Specializing in beautiful cross-platform
+                    UI/UX, robust state management, and seamless Firebase integrations.
                 </p>
-                <div class="mt-4 flex justify-center lg:justify-start gap-4 reveal [transition-delay:600ms]">
-                    <a class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-base font-bold text-white shadow-lg transition-transform duration-200 hover:scale-105"
+
+                <div
+                    class="mt-4 flex flex-col sm:flex-row justify-center lg:justify-start gap-4 reveal [transition-delay:600ms]">
+                    <a class="inline-flex items-center justify-center rounded-2xl bg-primary px-8 py-4 text-base font-bold text-white shadow-[0_8px_30px_rgba(19,164,236,0.4)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(19,164,236,0.6)] group"
                         href="#projects">
                         View Projects
+                        <span
+                            class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
                     </a>
-                    <a class="inline-flex items-center justify-center rounded-lg border border-primary text-primary px-6 py-3 text-base font-bold transition-transform duration-200 hover:scale-105"
+                    <a class="inline-flex items-center justify-center rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-8 py-4 text-base font-bold text-gray-900 dark:text-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-750"
                         href="#contact">
                         Contact Me
                     </a>
                 </div>
+
+                <!-- Tech Stack Quick View -->
+                <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 reveal [transition-delay:800ms]">
+                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wider">Tech
+                        Stack</p>
+                    <div
+                        class="flex flex-wrap justify-center lg:justify-start gap-4 text-2xl text-gray-400 dark:text-gray-500">
+                        <i class="devicon-flutter-plain group hover:text-[#02569B] transition-colors"
+                            title="Flutter"></i>
+                        <i class="devicon-dart-plain group hover:text-[#0175C2] transition-colors" title="Dart"></i>
+                        <i class="devicon-firebase-plain group hover:text-[#FFCA28] transition-colors"
+                            title="Firebase"></i>
+                        <i class="devicon-android-plain group hover:text-[#3DDC84] transition-colors"
+                            title="Android"></i>
+                        <i class="devicon-apple-original group hover:text-gray-900 dark:hover:text-white transition-colors"
+                            title="iOS"></i>
+                    </div>
+                </div>
             </div>
-            <div class="flex justify-center reveal [transition-delay:800ms]">
-                <div class="relative">
-                    <!-- Flip Card Container -->
-                    <div class="flip-card h-80 w-80">
-                        <div class="flip-card-inner">
-                            <!-- Front: Normal Profile -->
-                            <div class="flip-card-front bg-cover bg-center ring-4 ring-primary/20 shadow-2xl"
-                                style='background-image: url("assets/img/profile.png");'>
-                            </div>
-                            <!-- Back: Developer Profile -->
-                            <div class="flip-card-back bg-cover bg-center ring-4 ring-primary/20 shadow-2xl"
-                                style='background-image: url("assets/img/developer.png");'>
-                            </div>
+
+            <!-- Mobile Device Mockup Container -->
+            <div class="flex justify-center order-1 lg:order-2 reveal relative [transition-delay:400ms]">
+
+                <!-- Floating Elements surrounding the phone -->
+                <div class="absolute top-10 -left-6 z-20 bg-white dark:bg-gray-800 p-3 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 animate-bounce"
+                    style="animation-duration: 3s;">
+                    <div class="flex items-center gap-2">
+                        <div
+                            class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined text-sm">code</span>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-[10px] text-gray-400 font-medium uppercase tracking-wider">Specialty</p>
+                            <p class="text-sm font-bold text-gray-900 dark:text-white">Clean Code</p>
                         </div>
                     </div>
+                </div>
+
+                <div class="absolute bottom-20 -right-6 z-20 bg-white dark:bg-gray-800 p-3 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 animate-bounce"
+                    style="animation-duration: 4s; animation-delay: 1s;">
+                    <div class="flex items-center gap-2">
+                        <div
+                            class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/50 flex items-center justify-center text-green-500">
+                            <span class="material-symbols-outlined text-sm">speed</span>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-[10px] text-gray-400 font-medium uppercase tracking-wider">Focus</p>
+                            <p class="text-sm font-bold text-gray-900 dark:text-white">60 FPS</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phone Mockup Frame -->
+                <div
+                    class="relative w-[280px] h-[580px] sm:w-[320px] sm:h-[650px] bg-gray-900 rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-[8px] border-gray-900 overflow-hidden z-10 group ring-1 ring-gray-800 transition-transform duration-500 hover:scale-[1.02]">
+                    <!-- Notch -->
                     <div
-                        class="absolute -bottom-4 -right-4 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
-                        <div class="flex items-center gap-2 text-primary">
-                            <span class="material-symbols-outlined font-bold">verified</span>
-                            <span class="font-bold">Flutter Developer</span>
+                        class="absolute top-0 inset-x-0 h-6 bg-gray-900 rounded-b-3xl w-40 mx-auto z-30 flex justify-center items-end pb-1">
+                        <div class="w-12 h-1.5 bg-gray-800 rounded-full"></div>
+                    </div>
+
+                    <!-- App Screen Content (Carousel inside Phone) -->
+                    <div class="relative w-full h-full bg-white dark:bg-gray-950 overflow-hidden flex flex-col pt-8">
+
+                        <!-- Mock App Header -->
+                        <div
+                            class="px-5 py-3 flex justify-between items-center z-20 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md sticky top-0">
+                            <div class="font-bold text-lg dark:text-white">Portfolio<span
+                                    class="text-primary">.App</span></div>
+                            <div class="flex gap-3">
+                                <span
+                                    class="material-symbols-outlined text-gray-600 dark:text-gray-300 text-xl cursor-pointer hover:text-primary transition-colors">notifications</span>
+                                <div
+                                    class="w-6 h-6 rounded-full bg-white flex flex-col items-center justify-center ring-2 ring-primary p-0.5 overflow-hidden">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg"
+                                        alt="Flutter" class="w-full h-full object-contain" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Carousel Container -->
+                        <div class="flex-grow overflow-y-auto no-scrollbar pb-20 relative px-4" id="hero-carousel"
+                            style="scroll-snap-type: y mandatory;">
+
+                            <!-- Slide 1: Welcome App UI -->
+                            <div
+                                class="w-full h-full flex flex-col justify-center items-center text-center pb-12 snap-center shrink-0">
+                                <div
+                                    class="w-32 h-32 rounded-[2rem] bg-gradient-to-tr from-primary to-blue-300 p-1 mb-6 shadow-xl shadow-primary/30">
+                                    <div
+                                        class="w-full h-full bg-white dark:bg-gray-900 rounded-[1.8rem] flex items-center justify-center overflow-hidden">
+                                        <img src="assets/img/profile.png" alt="Mohit Koley"
+                                            class="w-full h-full object-cover scale-110" />
+                                    </div>
+                                </div>
+                                <h3 class="text-2xl font-bold dark:text-white mb-2">Welcome!</h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 px-4">Scroll to discover my skills,
+                                    projects, and experiences delivered in an app-like format.</p>
+
+                                <div class="mt-8 animate-bounce text-primary">
+                                    <span class="material-symbols-outlined text-3xl">keyboard_arrow_down</span>
+                                </div>
+                            </div>
+
+                            <!-- Slide 2: Skill App Card -->
+                            <div class="w-full h-full flex flex-col justify-start pt-4 snap-center shrink-0">
+                                <h4 class="text-xl font-bold dark:text-white mb-4">Core Strengths</h4>
+
+                                <div class="space-y-3">
+                                    <div
+                                        class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-4 border border-gray-100 dark:border-gray-800 flex items-center gap-4 cursor-pointer hover:border-primary/50 transition-colors">
+                                        <div
+                                            class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-[#0175C2]">
+                                            <i class="devicon-flutter-plain text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold dark:text-white text-sm">Flutter Framework</p>
+                                            <p class="text-xs text-gray-500">Cross-Platform UI</p>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-4 border border-gray-100 dark:border-gray-800 flex items-center gap-4 cursor-pointer hover:border-primary/50 transition-colors">
+                                        <div
+                                            class="w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center text-[#FFCA28]">
+                                            <i class="devicon-firebase-plain text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold dark:text-white text-sm">Firebase Cloud</p>
+                                            <p class="text-xs text-gray-500">Auth & Database</p>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-4 border border-gray-100 dark:border-gray-800 flex items-center gap-4 cursor-pointer hover:border-primary/50 transition-colors">
+                                        <div
+                                            class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-500">
+                                            <span class="material-symbols-outlined text-2xl">architecture</span>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold dark:text-white text-sm">Clean Architecture</p>
+                                            <p class="text-xs text-gray-500">Scalable Design</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 3: Project Teaser -->
+                            <div class="w-full h-full flex flex-col justify-start pt-4 snap-center shrink-0">
+                                <h4 class="text-xl font-bold dark:text-white mb-4">Latest Project</h4>
+
+                                <div
+                                    class="bg-gray-50 dark:bg-gray-900 rounded-3xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800">
+                                    <div class="h-32 bg-gray-200 dark:bg-gray-800 relative bg-cover bg-center"
+                                        style="background-image: url('assets/img/projects/logistifie.png');">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent">
+                                        </div>
+                                        <p class="absolute bottom-3 left-4 text-white font-bold">Logistifie</p>
+                                    </div>
+                                    <div class="p-4">
+                                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">Chauffeur service
+                                            platform with real-time tracking and in-app navigation.</p>
+                                        <button
+                                            class="w-full py-2 bg-primary/10 text-primary rounded-xl font-bold text-sm hover:bg-primary/20 transition-colors">View
+                                            Details</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Mock Bottom Bar -->
+                        <div
+                            class="absolute bottom-0 inset-x-0 h-16 bg-white dark:bg-gray-950 border-t border-gray-100 dark:border-gray-800 flex items-center justify-around px-2 z-20">
+                            <a href="#hero"
+                                class="flex flex-col items-center text-primary cursor-pointer transition-colors">
+                                <span class="material-symbols-outlined font-filled">home</span>
+                                <span class="text-[8px] font-bold">Home</span>
+                            </a>
+                            <a href="#projects"
+                                class="flex flex-col items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 cursor-pointer transition-colors">
+                                <span class="material-symbols-outlined">search</span>
+                                <span class="text-[8px] font-bold">Search</span>
+                            </a>
+                            <a href="#contact"
+                                class="flex flex-col items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 cursor-pointer transition-colors">
+                                <span class="material-symbols-outlined">call</span>
+                                <span class="text-[8px] font-bold">Contact</span>
+                            </a>
+                        </div>
+
+                        <!-- Home Indicator -->
+                        <div class="absolute bottom-1 inset-x-0 flex justify-center z-30 pointer-events-none">
+                            <div class="w-1/3 h-1 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
+
+<!-- Add devicon link for tech stack icons in index.html later -->
+<style>
+    /* Utilities for phone mockup */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .font-filled {
+        font-variation-settings: 'FILL' 1;
+    }
+</style>

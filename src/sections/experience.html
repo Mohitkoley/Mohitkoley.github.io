@@ -1,134 +1,233 @@
-<!-- Experience Timeline -->
+<!-- Experience — Wallet-Style Card Stack -->
 <section class="py-20 sm:py-24" id="experience">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center">
+        <div class="text-center mb-16">
             <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Work Experience</h2>
             <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">My professional journey as a developer.</p>
         </div>
-        <div class="mt-16 max-w-3xl mx-auto">
-            <div class="relative">
-                <div aria-hidden="true" class="absolute left-6 top-0 w-0.5 h-full bg-gray-300 dark:bg-gray-700"></div>
-                <div class="space-y-12">
-                    <!-- Experience 1: Amnet Digital -->
-                    <div class="relative pl-12 group reveal [transition-delay:100ms]">
-                        <div class="absolute left-0 top-1.5 flex items-center justify-center">
-                            <div
-                                class="w-12 h-12 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center ring-4 ring-background-light dark:ring-background-dark shadow-md group-hover:scale-110 transition-transform">
-                                <span class="material-symbols-outlined text-primary">work</span>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white dark:bg-gray-800/50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
-                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Senior Flutter Developer
-                                </h3>
-                                <time class="text-sm font-medium text-primary mt-1 sm:mt-0">Jan 2026 - Current</time>
-                            </div>
-                            <p
-                                class="flex items-center gap-2 text-md text-gray-600 dark:text-gray-400 mb-4 font-medium">
-                                <img src="assets/img/amnet_digital.png" alt="Amnet Digital"
-                                    class="w-5 h-5 object-contain dark:brightness-0 dark:invert">
-                                Amnet Digital, Hyderabad
-                            </p>
-                            <ul class="space-y-2 text-gray-700 dark:text-gray-300 list-disc list-inside text-sm">
-                                <li>Architected a robust offline-first synchronization engine for a high-concurrency
-                                    enterprise mobile app, ensuring 100% data integrity during intermittent network
-                                    connectivity.</li>
-                                <li>Implemented a custom "Outbox Pattern" using SQLite (sqflite) to manage background
-                                    data synchronization, featuring atomic transactions to prevent data loss during app
-                                    crashes or hardware failures.</li>
-                            </ul>
-                        </div>
-                    </div>
 
-                    <!-- Experience 2: Logistifie -->
-                    <div class="relative pl-12 group reveal [transition-delay:200ms]">
-                        <div class="absolute left-0 top-1.5 flex items-center justify-center">
-                            <div
-                                class="w-12 h-12 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center ring-4 ring-background-light dark:ring-background-dark shadow-md group-hover:scale-110 transition-transform">
-                                <span class="material-symbols-outlined text-primary">work</span>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white dark:bg-gray-800/50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
-                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Lead Flutter Developer
-                                </h3>
-                                <time class="text-sm font-medium text-primary mt-1 sm:mt-0">July 2024 - Jan 2026</time>
-                            </div>
-                            <p
-                                class="flex items-center gap-2 text-md text-gray-600 dark:text-gray-400 mb-4 font-medium">
-                                <img src="assets/img/logistifie.png" alt="Logistifie"
-                                    class="w-5 h-5 object-contain dark:brightness-0 dark:invert">
-                                Logistifie Pvt Ltd
-                            </p>
-                            <ul class="space-y-2 text-gray-700 dark:text-gray-300 list-disc list-inside text-sm">
-                                <li>Leading the mobile app development team and driving the complete development cycle
-                                    from scratch.</li>
-                                <li>Analysing client requirements to design and implement scalable technical solutions.
-                                </li>
-                                <li>Managing server infrastructure, backend integrations, and deployment processes.</li>
-                                <li>Delivered stable, production-ready Chauffeur service applications with 500+
-                                    downloads.</li>
-                            </ul>
-                        </div>
-                    </div>
+        <div class="max-w-3xl mx-auto">
+            <!--
+              Wallet stacking: one sticky deck, cards slide in from below as you scroll.
+              Card 0 is in-flow (sets deck height). Cards 1-3 are absolute on top, hidden until animated.
+            -->
+            <div id="exp-track" style="height: 500vh; position: relative;">
+                <div id="exp-deck" class="sticky" style="top: 96px;">
+                    <!-- overflow:hidden clips off-screen absolute cards -->
+                    <div id="exp-deck-inner" style="position: relative; overflow: hidden; border-radius: 1rem;">
 
-                    <!-- Experience 3: RolDrive -->
-                    <div class="relative pl-12 group reveal [transition-delay:300ms]">
-                        <div class="absolute left-0 top-1.5 flex items-center justify-center">
+                        <!-- Card 0: Senior Flutter Developer (in-flow, sets deck height) -->
+                        <div class="exp-card" data-card-index="0"
+                            style="position: relative; z-index: 4; will-change: transform;">
                             <div
-                                class="w-12 h-12 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center ring-4 ring-background-light dark:ring-background-dark shadow-md group-hover:scale-110 transition-transform">
-                                <span class="material-symbols-outlined text-primary">devices</span>
+                                class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-2xl w-full overflow-hidden">
+                                <!-- Coloured top accent bar -->
+                                <div class="h-1 w-full bg-gradient-to-r from-primary to-blue-400"></div>
+                                <div class="p-6 md:p-8">
+                                    <!-- Header row -->
+                                    <div class="flex items-start gap-4 mb-5">
+                                        <div
+                                            class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                                            <span class="material-symbols-outlined text-primary">work</span>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                                <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
+                                                    Senior Flutter Developer</h3>
+                                                <span
+                                                    class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold whitespace-nowrap">Jan
+                                                    2026 – Current</span>
+                                            </div>
+                                            <p
+                                                class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mt-1 font-medium">
+                                                <img src="assets/img/amnet_digital.png" alt="Amnet Digital"
+                                                    class="w-5 h-5 object-contain dark:brightness-0 dark:invert shrink-0">
+                                                Amnet Digital, Hyderabad
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- Bullets -->
+                                    <ul class="space-y-2.5 text-gray-600 dark:text-gray-300 text-sm md:text-base">
+                                        <li class="flex items-start gap-2.5">
+                                            <span
+                                                class="material-symbols-outlined text-primary text-base shrink-0 mt-0.5">check_circle</span>
+                                            <span>Architected a robust offline-first synchronization engine for a
+                                                high-concurrency enterprise mobile app, ensuring 100% data integrity
+                                                during intermittent network connectivity.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5">
+                                            <span
+                                                class="material-symbols-outlined text-primary text-base shrink-0 mt-0.5">check_circle</span>
+                                            <span>Implemented a custom "Outbox Pattern" using SQLite (sqflite) to manage
+                                                background data synchronization, featuring atomic transactions to
+                                                prevent data loss.</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                        <div
-                            class="bg-white dark:bg-gray-800/50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
-                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Flutter Developer</h3>
-                                <time class="text-sm font-medium text-primary mt-1 sm:mt-0">June 2023 - June 2024</time>
-                            </div>
-                            <p
-                                class="flex items-center gap-2 text-md text-gray-600 dark:text-gray-400 mb-4 font-medium">
-                                <img src="assets/img/roldrive_icon.png" alt="Roldrive"
-                                    class="w-5 h-5 object-contain dark:brightness-0 dark:invert">
-                                Roldrive Pvt. Ltd, Kolkata
-                            </p>
-                            <ul class="space-y-2 text-gray-700 dark:text-gray-300 list-disc list-inside text-sm">
-                                <li>Developed a chauffeur service mobile application enabling seamless ride bookings.
-                                </li>
-                                <li>Integrated complex APIs and WebSockets for real-time location tracking and maps.
-                                </li>
-                                <li>Optimized communication protocols for enhanced performance.</li>
-                            </ul>
-                        </div>
-                    </div>
 
-                    <!-- Experience 4: Teamwork -->
-                    <div class="relative pl-12 group reveal [transition-delay:400ms]">
-                        <div class="absolute left-0 top-1.5 flex items-center justify-center">
+                        <!-- Card 1: Lead Flutter Developer (absolute overlay, starts below) -->
+                        <div class="exp-card" data-card-index="1"
+                            style="position: absolute; top: 0; left: 0; right: 0; z-index: 5; will-change: transform; transform: translateY(108%);">
                             <div
-                                class="w-12 h-12 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center ring-4 ring-background-light dark:ring-background-dark shadow-md group-hover:scale-110 transition-transform">
-                                <span class="material-symbols-outlined text-primary">analytics</span>
+                                class="bg-gray-50 dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-2xl w-full overflow-hidden">
+                                <div class="h-1 w-full bg-gradient-to-r from-violet-500 to-primary"></div>
+                                <div class="p-6 md:p-8">
+                                    <div class="flex items-start gap-4 mb-5">
+                                        <div
+                                            class="w-11 h-11 rounded-xl bg-violet-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                                            <span class="material-symbols-outlined text-violet-400">groups</span>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                                <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
+                                                    Lead Flutter Developer</h3>
+                                                <span
+                                                    class="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/10 text-violet-400 text-sm font-semibold whitespace-nowrap">July
+                                                    2024 – Jan 2026</span>
+                                            </div>
+                                            <p
+                                                class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mt-1 font-medium">
+                                                <img src="assets/img/logistifie.png" alt="Logistifie"
+                                                    class="w-5 h-5 object-contain dark:brightness-0 dark:invert shrink-0">
+                                                Logistifie Pvt Ltd
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <ul class="space-y-2.5 text-gray-600 dark:text-gray-300 text-sm md:text-base">
+                                        <li class="flex items-start gap-2.5">
+                                            <span
+                                                class="material-symbols-outlined text-violet-400 text-base shrink-0 mt-0.5">check_circle</span>
+                                            <span>Led the mobile app development team and drove the complete development
+                                                cycle from scratch.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5">
+                                            <span
+                                                class="material-symbols-outlined text-violet-400 text-base shrink-0 mt-0.5">check_circle</span>
+                                            <span>Analysed client requirements to design and implement scalable
+                                                technical solutions.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5">
+                                            <span
+                                                class="material-symbols-outlined text-violet-400 text-base shrink-0 mt-0.5">check_circle</span>
+                                            <span>Managed server infrastructure, backend integrations, and deployment
+                                                processes.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5">
+                                            <span
+                                                class="material-symbols-outlined text-violet-400 text-base shrink-0 mt-0.5">check_circle</span>
+                                            <span>Delivered stable, production-ready Chauffeur service applications with
+                                                500+ downloads.</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                        <div
-                            class="bg-white dark:bg-gray-800/50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
-                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Flutter Developer</h3>
-                                <time class="text-sm font-medium text-primary mt-1 sm:mt-0">Nov 2022 - May 2023</time>
+
+                        <!-- Card 2: Flutter Developer @ Roldrive (absolute overlay) -->
+                        <div class="exp-card" data-card-index="2"
+                            style="position: absolute; top: 0; left: 0; right: 0; z-index: 6; will-change: transform; transform: translateY(108%);">
+                            <div
+                                class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-2xl w-full overflow-hidden">
+                                <div class="h-1 w-full bg-gradient-to-r from-emerald-500 to-teal-400"></div>
+                                <div class="p-6 md:p-8">
+                                    <div class="flex items-start gap-4 mb-5">
+                                        <div
+                                            class="w-11 h-11 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                                            <span
+                                                class="material-symbols-outlined text-emerald-400">directions_car</span>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                                <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
+                                                    Flutter Developer</h3>
+                                                <span
+                                                    class="inline-flex items-center px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-sm font-semibold whitespace-nowrap">June
+                                                    2023 – June 2024</span>
+                                            </div>
+                                            <p
+                                                class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mt-1 font-medium">
+                                                <img src="assets/img/roldrive_icon.png" alt="Roldrive"
+                                                    class="w-5 h-5 object-contain dark:brightness-0 dark:invert shrink-0">
+                                                Roldrive Pvt. Ltd, Kolkata
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <ul class="space-y-2.5 text-gray-600 dark:text-gray-300 text-sm md:text-base">
+                                        <li class="flex items-start gap-2.5">
+                                            <span
+                                                class="material-symbols-outlined text-emerald-400 text-base shrink-0 mt-0.5">check_circle</span>
+                                            <span>Developed a chauffeur service mobile application enabling seamless
+                                                ride bookings.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5">
+                                            <span
+                                                class="material-symbols-outlined text-emerald-400 text-base shrink-0 mt-0.5">check_circle</span>
+                                            <span>Integrated complex APIs and WebSockets for real-time location tracking
+                                                and maps.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5">
+                                            <span
+                                                class="material-symbols-outlined text-emerald-400 text-base shrink-0 mt-0.5">check_circle</span>
+                                            <span>Optimized communication protocols for enhanced performance.</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <p class="text-md text-gray-600 dark:text-gray-400 mb-4 font-medium">Teamwork Info Solutions
-                                Pvt. Ltd, Prayagraj</p>
-                            <ul class="space-y-2 text-gray-700 dark:text-gray-300 list-disc list-inside text-sm">
-                                <li>Developed live logistics applications with a focus on seamless API integration.</li>
-                                <li>Implemented efficient cache management techniques for enhanced user experience.</li>
-                                <li>Collaborated on optimal functionality and real-time data handling.</li>
-                            </ul>
                         </div>
-                    </div>
-                </div>
-            </div>
+
+                        <!-- Card 3: Flutter Developer @ Teamwork (absolute overlay) -->
+                        <div class="exp-card" data-card-index="3"
+                            style="position: absolute; top: 0; left: 0; right: 0; z-index: 7; will-change: transform; transform: translateY(108%);">
+                            <div
+                                class="bg-gray-50 dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-2xl w-full overflow-hidden">
+                                <div class="h-1 w-full bg-gradient-to-r from-orange-500 to-amber-400"></div>
+                                <div class="p-6 md:p-8">
+                                    <div class="flex items-start gap-4 mb-5">
+                                        <div
+                                            class="w-11 h-11 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                                            <span class="material-symbols-outlined text-orange-400">analytics</span>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                                <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
+                                                    Flutter Developer</h3>
+                                                <span
+                                                    class="inline-flex items-center px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 text-sm font-semibold whitespace-nowrap">Nov
+                                                    2022 – May 2023</span>
+                                            </div>
+                                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 font-medium">
+                                                Teamwork Info Solutions Pvt. Ltd, Prayagraj</p>
+                                        </div>
+                                    </div>
+                                    <ul class="space-y-2.5 text-gray-600 dark:text-gray-300 text-sm md:text-base">
+                                        <li class="flex items-start gap-2.5">
+                                            <span
+                                                class="material-symbols-outlined text-orange-400 text-base shrink-0 mt-0.5">check_circle</span>
+                                            <span>Developed live logistics applications with a focus on seamless API
+                                                integration.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5">
+                                            <span
+                                                class="material-symbols-outlined text-orange-400 text-base shrink-0 mt-0.5">check_circle</span>
+                                            <span>Implemented efficient cache management techniques for enhanced user
+                                                experience.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5">
+                                            <span
+                                                class="material-symbols-outlined text-orange-400 text-base shrink-0 mt-0.5">check_circle</span>
+                                            <span>Collaborated on optimal functionality and real-time data
+                                                handling.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- /#exp-deck-inner -->
+                </div><!-- /#exp-deck -->
+            </div><!-- /#exp-track -->
         </div>
     </div>
 </section>
