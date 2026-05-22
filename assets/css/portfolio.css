@@ -260,22 +260,75 @@ html {
   margin-top: 0.2rem;
 }
 
+.career-track {
+  --rail-left: 13.125rem;
+  --timeline-progress: 0;
+}
+
+.career-item {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 9.5rem 3.25rem minmax(0, 1fr);
+  position: relative;
+}
+
+.career-date {
+  padding-top: 0.28rem;
+  text-align: right;
+}
+
+.career-date span {
+  color: var(--muted);
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.career-card {
+  max-width: 42rem;
+}
+
 .timeline-line {
-  background: var(--line);
-  bottom: 0;
-  left: 0;
+  background: rgba(42, 42, 50, 0.95);
+  bottom: 0.45rem;
+  left: var(--rail-left);
+  overflow: hidden;
   position: absolute;
-  top: 0;
+  top: 0.45rem;
+  transform: translateX(-50%);
   width: 1px;
 }
 
 .timeline-line::after {
-  background: var(--gold);
+  background: linear-gradient(180deg, var(--gold), rgba(232, 166, 49, 0.28));
   content: "";
   inset: 0;
   position: absolute;
-  transform: scaleY(var(--timeline-progress, 0));
+  transform: scaleY(var(--timeline-progress));
   transform-origin: top;
+  will-change: transform;
+}
+
+.career-marker {
+  align-self: start;
+  background: var(--ink);
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  box-shadow: 0 0 0 8px var(--ink), 0 0 18px rgba(232, 166, 49, 0.48);
+  height: 0.7rem;
+  justify-self: center;
+  margin-top: 0.5rem;
+  position: relative;
+  width: 0.7rem;
+  z-index: 2;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.career-marker.is-active {
+  background: var(--gold);
+  box-shadow: 0 0 0 8px var(--ink), 0 0 22px rgba(232, 166, 49, 0.72);
+  transform: scale(1.12);
 }
 
 .field {
@@ -326,5 +379,34 @@ html {
 
   .project-row {
     flex-direction: column;
+  }
+
+  .career-section .section-title {
+    margin-bottom: 4rem;
+  }
+
+  .career-track {
+    --rail-left: 0.35rem;
+  }
+
+  .career-item {
+    gap: 0.8rem 1.35rem;
+    grid-template-columns: 0.7rem minmax(0, 1fr);
+  }
+
+  .career-date {
+    grid-column: 2;
+    padding-top: 0;
+    text-align: left;
+  }
+
+  .career-marker {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    margin-top: 0.42rem;
+  }
+
+  .career-card {
+    grid-column: 2;
   }
 }

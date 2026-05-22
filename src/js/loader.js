@@ -119,19 +119,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function initTimelineProgress() {
         const timeline = document.querySelector(".timeline-line");
-        const xpSection = document.querySelector("#xp");
-        if (!timeline || !xpSection) return;
+        const track = document.querySelector(".career-track");
+        const markers = document.querySelectorAll(".career-marker");
+        if (!timeline || !track || markers.length < 2) return;
+
+        let ticking = false;
 
         const update = () => {
-            const rect = xpSection.getBoundingClientRect();
-            const viewport = window.innerHeight;
-            const progress = Math.min(1, Math.max(0, (viewport * 0.65 - rect.top) / (rect.height - viewport * 0.25)));
+            const first = markers[0].getBoundingClientRect();
+            const last = markers[markers.length - 1].getBoundingClientRect();
+            const firstCenter = first.top + first.height / 2;
+            const lastCenter = last.top + last.height / 2;
+            const playhead = window.innerHeight * 0.45;
+            const distance = Math.max(1, lastCenter - firstCenter);
+            const progress = Math.min(1, Math.max(0, (playhead - firstCenter) / distance));
+
+            markers.forEach((marker) => {
+                const rect = marker.getBoundingClientRect();
+                const markerCenter = rect.top + rect.height / 2;
+                marker.classList.toggle("is-active", markerCenter <= playhead);
+            });
             timeline.style.setProperty("--timeline-progress", progress.toFixed(3));
+            ticking = false;
+        };
+
+        const requestUpdate = () => {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(update);
         };
 
         update();
-        window.addEventListener("scroll", () => requestAnimationFrame(update), { passive: true });
-        window.addEventListener("resize", update);
+        window.addEventListener("scroll", requestUpdate, { passive: true });
+        window.addEventListener("resize", requestUpdate);
     }
 
     async function init() {
