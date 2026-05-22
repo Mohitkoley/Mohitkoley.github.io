@@ -1,64 +1,43 @@
-<!-- Skills Section -->
-<section class="py-20 sm:py-24 bg-white dark:bg-background-dark" id="skills">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Technical Skills
-            </h2>
-            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">Specialized in mobile development with a strong
-                foundation in modern tech stacks.</p>
-        </div>
+<section class="section-pad bg-[#0A0A0C]" id="skills">
+    <div class="mx-auto max-w-7xl">
+        <h2 class="section-title animate-on-scroll mb-20 transition-all duration-1000 ease-out">Technical Arsenal</h2>
 
-        <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            <!-- Core Skills -->
-            <div
-                class="group p-6 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 hover:-translate-y-2 transition-all duration-500 reveal [transition-delay:100ms]">
-                <span
-                    class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform duration-500">terminal</span>
-                <h3 class="text-lg font-bold mb-4">Frameworks & Languages</h3>
-                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                    <li>Flutter & Dart</li>
-                    <li>Kotlin</li>
-                    <li>Swift</li>
-                    <li>State Management (BLoC, Riverpod)</li>
+        <div class="grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-4">
+            <div class="animate-on-scroll flex flex-col gap-6 transition-all duration-1000 ease-out">
+                <h3 class="font-heading text-xl font-bold text-primary">Frameworks & Languages</h3>
+                <ul class="flex flex-col gap-4">
+                    <li class="flex items-start gap-3 text-paper/80 transition-colors hover:text-paper"><span class="skill-arrow">→</span><span>Flutter & Dart</span></li>
+                    <li class="flex items-start gap-3 text-paper/80 transition-colors hover:text-paper"><span class="skill-arrow">→</span><span>Kotlin</span></li>
+                    <li class="flex items-start gap-3 text-paper/80 transition-colors hover:text-paper"><span class="skill-arrow">→</span><span>Swift</span></li>
+                    <li class="flex items-start gap-3 text-paper/80 transition-colors hover:text-paper"><span class="skill-arrow">→</span><span>BLoC / Riverpod</span></li>
                 </ul>
             </div>
 
-            <!-- Backend & Cloud -->
-            <div
-                class="group p-6 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 hover:-translate-y-2 transition-all duration-500 reveal [transition-delay:200ms]">
-                <span
-                    class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform duration-500">cloud</span>
-                <h3 class="text-lg font-bold mb-4">Backend & Cloud</h3>
-                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                    <li>Firebase (Auth, Firestore)</li>
-                    <li>AWS (S3, EC2)</li>
-                    <li>GraphQL & REST APIs</li>
+            <div class="animate-on-scroll flex flex-col gap-6 transition-all delay-150 duration-1000 ease-out">
+                <h3 class="font-heading text-xl font-bold text-primary">Backend & Cloud</h3>
+                <ul class="flex flex-col gap-4">
+                    <li class="flex items-start gap-3 text-paper/80 transition-colors hover:text-paper"><span class="skill-arrow">→</span><span>Firebase Auth + Firestore</span></li>
+                    <li class="flex items-start gap-3 text-paper/80 transition-colors hover:text-paper"><span class="skill-arrow">→</span><span>AWS (S3, EC2)</span></li>
+                    <li class="flex items-start gap-3 text-paper/80 transition-colors hover:text-paper"><span class="skill-arrow">→</span><span>GraphQL & REST APIs</span></li>
                 </ul>
             </div>
 
-            <!-- Real-time & Tools -->
-            <div
-                class="group p-6 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 hover:-translate-y-2 transition-all duration-500 reveal [transition-delay:300ms]">
-                <span
-                    class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform duration-500">settings_input_composite</span>
-                <h3 class="text-lg font-bold mb-4">Real-time & Intg.</h3>
-                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                    <li>WebSocket & Socket.io</li>
-                    <li>Google Maps API</li>
-                    <li>Stripe Payment Gateway</li>
+            <div class="animate-on-scroll flex flex-col gap-6 transition-all delay-300 duration-1000 ease-out">
+                <h3 class="font-heading text-xl font-bold text-primary">Real-time & Integrations</h3>
+                <ul class="flex flex-col gap-4">
+                    <li class="flex items-start gap-3 text-paper/80 transition-colors hover:text-paper"><span class="skill-arrow">→</span><span>WebSocket / Socket.io</span></li>
+                    <li class="flex items-start gap-3 text-paper/80 transition-colors hover:text-paper"><span class="skill-arrow">→</span><span>Google Maps SDK</span></li>
+                    <li class="flex items-start gap-3 text-paper/80 transition-colors hover:text-paper"><span class="skill-arrow">→</span><span>Stripe Gateway</span></li>
                 </ul>
             </div>
 
-            <!-- Tools -->
-            <div
-                class="group p-6 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 hover:-translate-y-2 transition-all duration-500 reveal [transition-delay:400ms]">
-                <span
-                    class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform duration-500">build</span>
-                <h3 class="text-lg font-bold mb-4">Tools & Workflow</h3>
-                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                    <li>Git & GitHub</li>
-                    <li>Jira & Agile</li>
-                    <li>VS Code & Android Studio</li>
+            <div class="animate-on-scroll flex flex-col gap-6 transition-all delay-[450ms] duration-1000 ease-out">
+                <h3 class="font-heading text-xl font-bold text-primary">Tools & Workflow</h3>
+                <ul class="flex flex-col gap-4">
+                    <li class="flex items-start gap-3 text-paper/80 transition-colors hover:text-paper"><span class="skill-arrow">→</span><span>Git & GitHub</span></li>
+                    <li class="flex items-start gap-3 text-paper/80 transition-colors hover:text-paper"><span class="skill-arrow">→</span><span>Jira / Agile</span></li>
+                    <li class="flex items-start gap-3 text-paper/80 transition-colors hover:text-paper"><span class="skill-arrow">→</span><span>VS Code</span></li>
+                    <li class="flex items-start gap-3 text-paper/80 transition-colors hover:text-paper"><span class="skill-arrow">→</span><span>Android Studio</span></li>
                 </ul>
             </div>
         </div>
