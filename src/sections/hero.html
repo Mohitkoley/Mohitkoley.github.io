@@ -46,16 +46,43 @@
             <div class="phone-shell hero-phone">
                 <div class="dynamic-island"></div>
 
-                <div class="absolute inset-x-0 top-0 z-10 flex h-20 items-end justify-center bg-ink pb-4">
-                    <span class="font-heading text-lg font-extrabold text-primary">Logistifie</span>
+                <div class="absolute inset-x-0 top-0 z-10 flex h-20 items-end justify-between bg-ink px-5 pb-4">
+                    <span class="font-heading text-lg font-extrabold text-primary">PulseOS</span>
+                    <span class="rounded-full border border-primary/25 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-primary">Live</span>
                 </div>
 
-                <div class="hero-screen" style="background-image: url('assets/img/projects/logistifie.png');">
-                    <div class="absolute left-1/2 top-1/3 z-10 flex -translate-x-1/2 -translate-y-full flex-col items-center">
-                        <div class="flex h-9 w-9 items-center justify-center rounded-full bg-primary shadow-lg shadow-primary/30">
-                            <div class="h-3 w-3 rounded-full bg-ink"></div>
+                <div class="hero-screen">
+                    <div class="screen-orb screen-orb-a"></div>
+                    <div class="screen-orb screen-orb-b"></div>
+
+                    <div class="route-map" aria-hidden="true">
+                        <svg viewBox="0 0 220 270" role="img">
+                            <path class="route-shadow"
+                                d="M24 220 C58 188 69 151 104 142 C154 128 149 77 197 52" />
+                            <path class="route-line"
+                                d="M24 220 C58 188 69 151 104 142 C154 128 149 77 197 52" />
+                        </svg>
+                        <span class="map-node node-a"></span>
+                        <span class="map-node node-b"></span>
+                        <span class="map-node node-c"></span>
+                    </div>
+
+                    <div class="perf-card">
+                        <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-muted">Frame Budget</span>
+                        <div class="mt-1 flex items-end justify-between">
+                            <strong class="font-heading text-4xl leading-none text-paper">16ms</strong>
+                            <span class="rounded-full bg-primary/15 px-2 py-1 text-[10px] font-bold text-primary">60 FPS</span>
                         </div>
-                        <div class="h-7 w-1 bg-gradient-to-b from-primary to-transparent"></div>
+                    </div>
+
+                    <div class="stack-card">
+                        <span class="stack-dot bg-primary"></span>
+                        <span class="stack-dot bg-violet"></span>
+                        <span class="stack-dot bg-paper"></span>
+                        <div>
+                            <p class="text-xs font-bold text-paper">Clean Architecture</p>
+                            <p class="text-[10px] text-muted">BLoC · API · Offline Sync</p>
+                        </div>
                     </div>
                 </div>
 
@@ -63,11 +90,11 @@
                     <div class="mx-auto mb-5 h-1 w-12 rounded-full bg-line"></div>
                     <div class="mb-3 flex h-12 items-center rounded-lg border border-line bg-ink px-4">
                         <span class="mr-3 h-2 w-2 rounded-full bg-primary"></span>
-                        <span class="text-sm text-paper">Current Location</span>
+                        <span class="text-sm text-paper">Production Ready</span>
                     </div>
                     <div class="mb-4 flex h-12 items-center rounded-lg bg-paper px-4">
                         <span class="mr-3 h-2 w-2 rounded-full bg-violet"></span>
-                        <span class="text-sm font-semibold text-ink">Search destination</span>
+                        <span class="text-sm font-semibold text-ink">Realtime UX Layer</span>
                     </div>
                     <a href="#work"
                         class="block w-full rounded-xl bg-primary py-4 text-center text-sm font-extrabold uppercase tracking-[0.18em] text-ink transition-colors hover:bg-paper">
