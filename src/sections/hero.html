@@ -43,64 +43,199 @@
         </div>
 
         <div class="animate-on-scroll flex w-full justify-center transition-all delay-300 duration-1000 ease-out lg:w-[45%]">
-            <div class="phone-shell hero-phone">
+            <div class="phone-shell hero-phone" data-phone-shell>
                 <div class="dynamic-island"></div>
 
-                <div class="absolute inset-x-0 top-0 z-10 flex h-20 items-end justify-between bg-ink px-5 pb-4">
-                    <span class="font-heading text-lg font-extrabold text-primary">PulseOS</span>
-                    <span class="rounded-full border border-primary/25 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-primary">Live</span>
+                <div class="phone-status" aria-label="Phone status bar">
+                    <span data-phone-time>09:41</span>
+                    <div class="phone-status-icons" aria-hidden="true">
+                        <span class="material-symbols-outlined">signal_cellular_alt</span>
+                        <span class="material-symbols-outlined">wifi</span>
+                        <span class="material-symbols-outlined">battery_full</span>
+                    </div>
                 </div>
 
-                <div class="hero-screen">
-                    <div class="screen-orb screen-orb-a"></div>
-                    <div class="screen-orb screen-orb-b"></div>
+                <div class="phone-screen">
+                    <section class="phone-view phone-home is-active" data-phone-screen="home" aria-label="PulseOS home screen">
+                        <div class="phone-wallpaper">
+                            <div class="phone-widget phone-widget-large">
+                                <span class="phone-widget-label">Today</span>
+                                <strong>Flutter builds, live systems, clean releases.</strong>
+                                <div class="phone-widget-stats">
+                                    <span><b>4</b> apps</span>
+                                    <span><b>60</b> FPS</span>
+                                    <span><b>500+</b> users</span>
+                                </div>
+                            </div>
 
-                    <div class="route-map" aria-hidden="true">
-                        <svg viewBox="0 0 220 270" role="img">
-                            <path class="route-shadow"
-                                d="M24 220 C58 188 69 151 104 142 C154 128 149 77 197 52" />
-                            <path class="route-line"
-                                d="M24 220 C58 188 69 151 104 142 C154 128 149 77 197 52" />
-                        </svg>
-                        <span class="map-node node-a"></span>
-                        <span class="map-node node-b"></span>
-                        <span class="map-node node-c"></span>
-                    </div>
+                            <div class="phone-app-grid" aria-label="Phone apps">
+                                <button class="phone-app" type="button" data-phone-open="work" aria-label="Open Work app">
+                                    <span class="phone-app-icon icon-work material-symbols-outlined">apps</span>
+                                    <span>Work</span>
+                                </button>
+                                <button class="phone-app" type="button" data-phone-open="live" aria-label="Open Live app">
+                                    <span class="phone-app-icon icon-live material-symbols-outlined">route</span>
+                                    <span>Live</span>
+                                </button>
+                                <button class="phone-app" type="button" data-phone-open="stack" aria-label="Open Stack app">
+                                    <span class="phone-app-icon icon-stack material-symbols-outlined">deployed_code</span>
+                                    <span>Stack</span>
+                                </button>
+                                <button class="phone-app" type="button" data-phone-open="inbox" aria-label="Open Inbox app">
+                                    <span class="phone-app-icon icon-inbox material-symbols-outlined">forum</span>
+                                    <span>Inbox</span>
+                                </button>
+                            </div>
 
-                    <div class="perf-card">
-                        <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-muted">Frame Budget</span>
-                        <div class="mt-1 flex items-end justify-between">
-                            <strong class="font-heading text-4xl leading-none text-paper">16ms</strong>
-                            <span class="rounded-full bg-primary/15 px-2 py-1 text-[10px] font-bold text-primary">60 FPS</span>
+                            <div class="phone-dock">
+                                <button type="button" data-phone-open="work" aria-label="Open Work">
+                                    <span class="material-symbols-outlined">work</span>
+                                </button>
+                                <button type="button" data-phone-open="live" aria-label="Open Live">
+                                    <span class="material-symbols-outlined">navigation</span>
+                                </button>
+                                <a href="#contact" aria-label="Open Contact section">
+                                    <span class="material-symbols-outlined">call</span>
+                                </a>
+                            </div>
                         </div>
-                    </div>
+                    </section>
 
-                    <div class="stack-card">
-                        <span class="stack-dot bg-primary"></span>
-                        <span class="stack-dot bg-violet"></span>
-                        <span class="stack-dot bg-paper"></span>
-                        <div>
-                            <p class="text-xs font-bold text-paper">Clean Architecture</p>
-                            <p class="text-[10px] text-muted">BLoC · API · Offline Sync</p>
+                    <section class="phone-view app-view" data-phone-screen="work" aria-label="Work app">
+                        <div class="app-header">
+                            <button class="phone-back" type="button" data-phone-back aria-label="Back to home">
+                                <span class="material-symbols-outlined">chevron_left</span>
+                            </button>
+                            <div>
+                                <span class="app-kicker">Selected Work</span>
+                                <h2>App Store shelf</h2>
+                            </div>
                         </div>
-                    </div>
+
+                        <div class="project-mini-list">
+                            <article class="project-mini is-selected" data-project-card>
+                                <img src="assets/img/projects/logistifie.png" alt="Logistifie app preview" />
+                                <div>
+                                    <h3>Logistifie</h3>
+                                    <p>Chauffeur bookings, maps, live driver status.</p>
+                                    <a href="#work">Open case</a>
+                                </div>
+                                <button class="mini-action material-symbols-outlined" type="button" data-phone-favorite aria-label="Save Logistifie">bookmark</button>
+                            </article>
+                            <article class="project-mini" data-project-card>
+                                <img src="assets/img/projects/roldrive.png" alt="RolDrive app preview" />
+                                <div>
+                                    <h3>RolDrive</h3>
+                                    <p>Luxury rides with socket-powered tracking.</p>
+                                    <a href="https://play.google.com/store/apps/details?id=com.roldrive.roldrive&pcampaignid=web_share" target="_blank" rel="noreferrer">Store</a>
+                                </div>
+                                <button class="mini-action material-symbols-outlined" type="button" data-phone-favorite aria-label="Save RolDrive">bookmark</button>
+                            </article>
+                            <article class="project-mini" data-project-card>
+                                <img src="assets/img/projects/twiila.png" alt="Twiila app preview" />
+                                <div>
+                                    <h3>Twiila</h3>
+                                    <p>Fashion discovery and mobile checkout.</p>
+                                    <a href="https://apps.apple.com/in/app/twilla/id6745891471" target="_blank" rel="noreferrer">Store</a>
+                                </div>
+                                <button class="mini-action material-symbols-outlined" type="button" data-phone-favorite aria-label="Save Twiila">bookmark</button>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="phone-view app-view" data-phone-screen="live" aria-label="Live route app">
+                        <div class="app-header">
+                            <button class="phone-back" type="button" data-phone-back aria-label="Back to home">
+                                <span class="material-symbols-outlined">chevron_left</span>
+                            </button>
+                            <div>
+                                <span class="app-kicker">Live Ops</span>
+                                <h2>Route monitor</h2>
+                            </div>
+                        </div>
+
+                        <div class="mini-map">
+                            <svg viewBox="0 0 232 270" role="img" aria-label="Animated delivery route">
+                                <path class="mini-road" d="M25 230 C52 186 76 183 95 143 C119 92 148 92 205 42" />
+                                <path class="mini-route" d="M25 230 C52 186 76 183 95 143 C119 92 148 92 205 42" />
+                            </svg>
+                            <span class="map-pin pin-start"></span>
+                            <span class="map-pin pin-mid"></span>
+                            <span class="map-pin pin-end"></span>
+                        </div>
+
+                        <div class="ride-panel">
+                            <div>
+                                <span>ETA</span>
+                                <strong data-eta-value>12 min</strong>
+                            </div>
+                            <div>
+                                <span>Status</span>
+                                <strong data-route-status>Driver en route</strong>
+                            </div>
+                        </div>
+
+                        <button class="phone-cta" type="button" data-route-step>
+                            <span class="material-symbols-outlined">sync</span>
+                            Update route
+                        </button>
+                    </section>
+
+                    <section class="phone-view app-view" data-phone-screen="stack" aria-label="Stack app">
+                        <div class="app-header">
+                            <button class="phone-back" type="button" data-phone-back aria-label="Back to home">
+                                <span class="material-symbols-outlined">chevron_left</span>
+                            </button>
+                            <div>
+                                <span class="app-kicker">Architecture</span>
+                                <h2>Build stack</h2>
+                            </div>
+                        </div>
+
+                        <div class="stack-terminal">
+                            <div class="terminal-row"><span>state</span><b>BLoC / Riverpod</b></div>
+                            <div class="terminal-row"><span>network</span><b>REST + GraphQL</b></div>
+                            <div class="terminal-row"><span>storage</span><b>SQLite / Firestore</b></div>
+                            <div class="terminal-row"><span>realtime</span><b>Socket.io</b></div>
+                        </div>
+
+                        <div class="perf-meter">
+                            <div class="perf-ring"><span data-phone-fps>60</span><small>FPS</small></div>
+                            <button type="button" data-phone-benchmark>Run</button>
+                        </div>
+                    </section>
+
+                    <section class="phone-view app-view" data-phone-screen="inbox" aria-label="Inbox app">
+                        <div class="app-header">
+                            <button class="phone-back" type="button" data-phone-back aria-label="Back to home">
+                                <span class="material-symbols-outlined">chevron_left</span>
+                            </button>
+                            <div>
+                                <span class="app-kicker">Inbox</span>
+                                <h2>Project chat</h2>
+                            </div>
+                        </div>
+
+                        <div class="chat-thread" aria-live="polite">
+                            <p class="chat-bubble incoming">Can you ship a polished Flutter MVP fast?</p>
+                            <p class="chat-bubble outgoing">Yes. I handle architecture, APIs, release builds, and realtime UX.</p>
+                            <p class="chat-bubble incoming" data-chat-reply>What should we build first?</p>
+                        </div>
+
+                        <div class="quick-replies">
+                            <button type="button" data-chat-option="A booking flow with maps and payments.">Booking</button>
+                            <button type="button" data-chat-option="A realtime dashboard backed by sockets.">Realtime</button>
+                            <button type="button" data-chat-option="A production cleanup before launch.">Launch</button>
+                        </div>
+
+                        <a class="phone-cta" href="#contact">
+                            <span class="material-symbols-outlined">send</span>
+                            Start project
+                        </a>
+                    </section>
                 </div>
 
-                <div class="phone-sheet">
-                    <div class="mx-auto mb-5 h-1 w-12 rounded-full bg-line"></div>
-                    <div class="mb-3 flex h-12 items-center rounded-lg border border-line bg-ink px-4">
-                        <span class="mr-3 h-2 w-2 rounded-full bg-primary"></span>
-                        <span class="text-sm text-paper">Production Ready</span>
-                    </div>
-                    <div class="mb-4 flex h-12 items-center rounded-lg bg-paper px-4">
-                        <span class="mr-3 h-2 w-2 rounded-full bg-violet"></span>
-                        <span class="text-sm font-semibold text-ink">Realtime UX Layer</span>
-                    </div>
-                    <a href="#work"
-                        class="block w-full rounded-xl bg-primary py-4 text-center text-sm font-extrabold uppercase tracking-[0.18em] text-ink transition-colors hover:bg-paper">
-                        Explore Apps
-                    </a>
-                </div>
+                <button class="phone-home-button" type="button" data-phone-home aria-label="Go to home screen"></button>
             </div>
         </div>
     </div>

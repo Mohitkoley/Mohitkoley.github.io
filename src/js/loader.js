@@ -117,6 +117,108 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    function initPhoneExperience() {
+        const phone = document.querySelector("[data-phone-shell]");
+        if (!phone) return;
+
+        const screens = Array.from(phone.querySelectorAll("[data-phone-screen]"));
+        const timeEl = phone.querySelector("[data-phone-time]");
+        const routeSteps = [
+            { eta: "12 min", status: "Driver en route" },
+            { eta: "8 min", status: "Pickup nearby" },
+            { eta: "3 min", status: "Arriving now" },
+            { eta: "0 min", status: "Trip complete" },
+        ];
+        let activeRouteStep = 0;
+        let activeScreen = "home";
+
+        const showScreen = (name) => {
+            activeScreen = name;
+            screens.forEach((screen) => {
+                screen.classList.toggle("is-active", screen.dataset.phoneScreen === name);
+            });
+        };
+
+        const updateTime = () => {
+            if (!timeEl) return;
+            timeEl.textContent = new Intl.DateTimeFormat([], {
+                hour: "2-digit",
+                minute: "2-digit",
+            }).format(new Date());
+        };
+
+        phone.querySelectorAll("[data-phone-open]").forEach((control) => {
+            control.addEventListener("click", () => {
+                showScreen(control.dataset.phoneOpen);
+            });
+        });
+
+        phone.querySelectorAll("[data-phone-back], [data-phone-home]").forEach((control) => {
+            control.addEventListener("click", () => showScreen("home"));
+        });
+
+        phone.querySelectorAll("[data-phone-favorite]").forEach((button) => {
+            button.addEventListener("click", () => {
+                button.classList.toggle("is-active");
+                button.textContent = button.classList.contains("is-active") ? "bookmark_added" : "bookmark";
+                const card = button.closest("[data-project-card]");
+                if (card) {
+                    card.classList.toggle("is-selected", button.classList.contains("is-active"));
+                }
+            });
+        });
+
+        const routeButton = phone.querySelector("[data-route-step]");
+        const etaValue = phone.querySelector("[data-eta-value]");
+        const routeStatus = phone.querySelector("[data-route-status]");
+        if (routeButton && etaValue && routeStatus) {
+            routeButton.addEventListener("click", () => {
+                activeRouteStep = (activeRouteStep + 1) % routeSteps.length;
+                etaValue.textContent = routeSteps[activeRouteStep].eta;
+                routeStatus.textContent = routeSteps[activeRouteStep].status;
+            });
+        }
+
+        const benchmarkButton = phone.querySelector("[data-phone-benchmark]");
+        const fpsValue = phone.querySelector("[data-phone-fps]");
+        if (benchmarkButton && fpsValue) {
+            benchmarkButton.addEventListener("click", () => {
+                const values = [58, 60, 59, 60];
+                let frame = 0;
+                benchmarkButton.disabled = true;
+                benchmarkButton.textContent = "Run";
+
+                const interval = window.setInterval(() => {
+                    fpsValue.textContent = values[frame % values.length];
+                    frame += 1;
+                    if (frame > 7) {
+                        window.clearInterval(interval);
+                        fpsValue.textContent = "60";
+                        benchmarkButton.disabled = false;
+                    }
+                }, 160);
+            });
+        }
+
+        phone.querySelectorAll("[data-chat-option]").forEach((button) => {
+            button.addEventListener("click", () => {
+                const reply = phone.querySelector("[data-chat-reply]");
+                if (reply) {
+                    reply.textContent = button.dataset.chatOption;
+                }
+            });
+        });
+
+        phone.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && activeScreen !== "home") {
+                showScreen("home");
+            }
+        });
+
+        updateTime();
+        window.setInterval(updateTime, 30000);
+    }
+
     function initTimelineProgress() {
         const timeline = document.querySelector(".timeline-line");
         const track = document.querySelector(".career-track");
@@ -159,6 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
         initAnimations();
         initContactForm();
         initHeroPhoneTilt();
+        initPhoneExperience();
         initTimelineProgress();
     }
 
